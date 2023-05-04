@@ -1,0 +1,57 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dddee3;
+  box-sizing: border-box;
+  padding: 0 70px 0 70px;
+}
+
+.header_type_movies {
+  background-color: white;
+}
+
+.header__logo {
+  max-width: 38px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+/*.header_type_movies {
+  background-color: #fff;
+}*/
+.header__links {
+  display: flex;
+  
+}
+
+.header__link {
+  margin-right: 30px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  align-self: center;
+  
+}
+
+.header__link:hover {
+  opacity: 0.6;
+  transition: 0.4s opacity;
+}
+
+.header__button {
+  width: 76px;
+  height: 32px;
+  background: #3456F3;
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: white;
+  cursor: pointer;
+}
