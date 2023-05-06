@@ -1,0 +1,77 @@
+.aboutproject {
+  padding: 0 70px 0 70px;
+  display: flex;
+  flex-direction: column;
+  background: #FAFAFA;
+  
+
+}
+.section-title {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 110px 0 0;
+  padding-bottom: 23px;
+  border-bottom: 1px solid #000;
+}
+
+.table {
+  display: flex;
+  justify-content: space-between;
+  margin: 70px 0 110px;
+  padding-left: 0;
+  
+  
+}
+.table__cell {
+  list-style-type: none;
+  max-width: 550px;
+}
+
+.table__heading {
+  margin: 0 0 26px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.table__text {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.graffic {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  margin-bottom: 100px;
+
+}
+
+.graffic__text {
+  font-size: 14px;
+  color:#A0A0A0;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  padding: 9px 0;
+  margin: 0;
+ 
+}
+
+.graffic__text:nth-child(1) {
+  font-size: 14px;
+  color:white;
+  font-weight: 400;
+  background: #3456F3;
+ 
+}
+
+.graffic__text:nth-child(2) {
+  font-size: 14px;
+  color:rgb(0, 0, 0);
+  font-weight: 400;
+  background: #F2F2F2
+
+}
+
