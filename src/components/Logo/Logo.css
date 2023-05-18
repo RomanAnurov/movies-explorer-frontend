@@ -1,0 +1,11 @@
+.logo {
+  display: flex;
+  max-width: 38px;
+  
+}
+@media screen and (max-width: 425px) {
+  .logo {
+    margin: 0 auto;
+    
+  }
+}

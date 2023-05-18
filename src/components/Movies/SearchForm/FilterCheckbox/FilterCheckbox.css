@@ -1,0 +1,43 @@
+.filter {
+  display: flex;
+  margin: 0;
+  position: relative;
+  border-bottom: 1px solid #AAAAAA;
+  padding-bottom: 43px ;
+
+}
+
+.filter__label {
+  display: flex
+}
+
+.filter__checkbox-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.filter__checkbox-hidden:checked + .filter__checkbox-visible {
+  background-image: url(../../../../images/check-active.svg);
+
+}
+
+.filter__checkbox-visible {
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  background-image: url(../../../../images/check-disable.svg);
+  cursor: pointer;
+  
+    
+}
+
+.filter__text {
+font-size: 13px;
+font-weight: 400;
+margin-left: 14px;
+line-height: 1.4;
+
+}

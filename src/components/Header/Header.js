@@ -1,24 +1,28 @@
 import React from "react";
 import './Header.css';
-import { Routes, Route, Link } from 'react-router-dom';
-import headerLogo from '../../images/logo.svg';
+import { Link, useLocation } from 'react-router-dom';
+import Logo from "../Logo/Logo";
 import Navigation from "../Navigation/Navigation";
+import burgerIcon from "../../images/button-burger.svg"
 
-function Header() {
+function Header(props) {
+const {onBurgerPopup, isOpen, onClose} = props;
+  
+  const location = useLocation();
+  const { pathname } = location;
   return (
-    <Routes>
-      <Route path="/" element={<header className="header">
-       <Link to="/"><img src={headerLogo} alt="логотип" className="header__logo" /></Link>
-        <div className="header__links">
-          <Link className="header__link" to="/sign-up">Регистрация</Link>
-          <Link to="/sign-in"><button className="header__button">Войти</button></Link>
-        </div>
-      </header >} />
-      <Route path="/movies" element={<header className="header header_type_movies">
-      <Link to="/"><img src={headerLogo} alt="логотип" className="header__logo" /></Link>
-        {<Navigation />}
-      </header >} />
-    </Routes>
+    pathname === '/' ? (<header className="header">
+      <Logo />
+      <div className="header__links">
+        <Link className="header__link" to="/signup">Регистрация</Link>
+        <Link to="/signin"><button className="header__button">Войти</button></Link>
+      </div>
+    </header >) : (<header className="header header_type_movies">
+     <Logo />
+      {<Navigation isOpen={isOpen} onClose={onClose} />}
+      <button className="header__burger" onClick={onBurgerPopup}type="button"><img src={burgerIcon} className="header__burger-icon" alt="иконка бургер меню" /></button>
+    </header >)
+
   );
 }
 

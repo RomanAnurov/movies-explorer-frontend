@@ -7,12 +7,50 @@
   position: relative;
 }
 
+@media screen and (max-width: 1024px) {
+  .promo {
+    padding-right: 50px;
+    padding-left: 50px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 495px) {
+  .promo {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .promo {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+}
+
 .promo__title {
   margin: 75px 0 0;
   font-weight: 400;
   font-size: 50px;
   line-height: 1.2;
   max-width: 640px;
+}
+
+@media screen and (max-width: 1024px) {
+  .promo__title {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 48px;
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .promo__title {
+    font-size: 28px;
+    margin-top: 44px;
+    line-height: 1.2;
+  }
 }
 
 .promo__subtitle {
@@ -24,17 +62,52 @@
   opacity: 0.5;
 }
 
+@media screen and (max-width: 1024px) {
+  .promo__subtitle {
+    text-align: center;
+    align-self: center;
+    margin-top: 22px;
+    max-width: 260px;
+  }
+}
+
 .promo__button {
   margin: 146px 0 75px;
-  color: #000000;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.2;
   border: 1px solid rgb(0, 0, 0, 0.6);
   border-radius: 3px;
   width: 129px;
   height: 36px;
   cursor: pointer;
+  padding: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .promo__button {
+    margin-top: 92px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .promo__button {
+    margin-top: 80px;
+    margin-bottom: 30px;
+  }
+}
+.promo__button-text {
+  color: #000000;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  display: block;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .promo__button {
+    text-align: center;
+    margin-top: 92px;
+    margin-bottom: 76px;
+    align-self: center;
+  }
 }
 
 .promo__main-illustration {
@@ -42,4 +115,19 @@
   position: absolute;
   top: 75px;
   right: 70px;
+}
+
+@media screen and (max-width: 1024px) {
+  .promo__main-illustration {
+    position: initial;
+    align-self: center;
+    margin-top: 140px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .promo__main-illustration {
+    max-width: 210px;
+    margin-top: 70px;
+  }
 }

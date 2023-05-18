@@ -1,20 +1,68 @@
 import React from "react";
+import { useState } from "react";
 import "./App.css";
-import Header from '../Header/Header';
 import Main from "../Main/Main";
 import { Routes, Route } from "react-router-dom";
-import Footer from "../Footer/Footer";
+import Movies from "../Movies/Movies";
+import SavedMovies from "../SavedMovies/SavedMovies";
+import Profile from "../Profile/Profile";
+import Register from "../Register/Register";
+import Login from "../Login/Login";
+import PageNotFound from "../PageNotFound/PageNotFound";
+import BurgerPopup from "../BurgerPopup/BurgerPopup";
+
 
 function App() {
+  const [isBurgerPopupOpen, setIsBurgerPopupOpen] = useState(false);
+
+  function handleBurgerPopupClick() {
+    setIsBurgerPopupOpen(true);
+  }
+
+  function handleBurgerPopupClose() {
+    setIsBurgerPopupOpen(false);
+  }
+
   return (
     <div className="page__content">
-      <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-
+        <Route
+          path="/movies"
+          element={
+            <Movies
+              isBurgerPopupOpen={isBurgerPopupOpen}
+              onBurgerPopup={handleBurgerPopupClick}
+              onClose={handleBurgerPopupClose}
+            />
+          }
+        />
+        <Route
+          path="/saved-movies"
+          element={
+            <SavedMovies
+              isBurgerPopupOpen={isBurgerPopupOpen}
+              onBurgerPopup={handleBurgerPopupClick}
+              onClose={handleBurgerPopupClose}
+            />
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <Profile
+              isBurgerPopupOpen={isBurgerPopupOpen}
+              onBurgerPopup={handleBurgerPopupClick}
+              onClose={handleBurgerPopupClose}
+            />
+          }
+        />
+        <Route path="/signup" element={<Register />} />
+        <Route path="/signin" element={<Login />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
-      <Footer />
-
+      <BurgerPopup isOpen={isBurgerPopupOpen} onClose={handleBurgerPopupClose}/>
+      
     </div>
   );
 }
