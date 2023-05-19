@@ -8,7 +8,7 @@ import BurgerPopup from "../BurgerPopup/BurgerPopup";
 
 
 function Movies(props) {
-  const { onBurgerPopup } = props;
+  const { onBurgerPopup,  } = props;
 
 
   return (

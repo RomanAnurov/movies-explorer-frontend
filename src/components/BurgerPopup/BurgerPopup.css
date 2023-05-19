@@ -22,20 +22,24 @@
 }
 
 .popup__container {
-  display: flex;
-  flex-direction: column;
+  padding-top: 159px;
+  padding-bottom: 92px;
+   box-sizing: border-box;
   position: fixed;
-  justify-content: center;
+  overflow-Y: auto;
   align-items: center;
   right: 0%;
   top: 0;
   width: 68%;
   background: #FAFAFA;
   height: 100vh;
+  
 }
 
 @media screen and (max-width: 425px) {
 .popup__container {
+  padding-top: 144px;
+  padding-bottom: 48px;
   width: 100%
 }
 }
@@ -45,17 +49,9 @@
   border: none;
   background: none;
   cursor: pointer;
-  display: none
-
+  position: absolute;
+  right: 13px;
+  top: 13px;
+  padding: 0;
 }
 
-@media screen and (max-width: 425px) {
-  .popup__close {
-    position: absolute;
-    right: 13px;
-    top: 13px;
-    padding: 0;
-    display: block;
-
-  }
-}

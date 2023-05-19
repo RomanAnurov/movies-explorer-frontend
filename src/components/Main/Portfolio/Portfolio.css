@@ -35,7 +35,8 @@
 
 @media screen and (max-width: 425px) {
   .portfolio__title {
-   margin-bottom: 40px;
+   margin-bottom: 42px;
+   font-size: 14px;
   }
 }
 
@@ -111,6 +112,6 @@
 
 @media screen and (max-width: 425px) {
   .portfolio__icon {
-    max-width: 18px;
+   width: 10px;
   }
 }

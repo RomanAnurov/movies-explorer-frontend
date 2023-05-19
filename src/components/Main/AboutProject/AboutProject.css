@@ -46,6 +46,9 @@
 @media screen and (max-width: 425px) {
   .section-title {
     margin-top: 70px;
+    font-size: 18px;
+    padding-bottom: 28px;
+    
   }
 }
 
@@ -75,6 +78,11 @@
   max-width: 550px;
 
 }
+@media screen and (max-width: 1080px) {
+.table__cell:nth-child(1) {
+  margin-right: 20px;
+}
+}
 
 
 
@@ -87,10 +95,16 @@
 @media screen and (max-width: 425px) {
   .table__cell {
     max-width: 396px;
-
     width: 100%;
   }
 }
+
+@media screen and (max-width: 425px) {
+  .table__cell:nth-child(1) {
+   margin-right: 0;
+  }
+}
+
 
 @media screen and (max-width: 425px) {
   .table__cell:nth-child(2) {
@@ -113,7 +127,7 @@
 
 @media screen and (max-width: 425px) {
   .table__heading {
-    margin-bottom: 22px;
+    margin-bottom: 16px;
     font-size: 18px;
   }
 }
@@ -134,15 +148,16 @@
 
 @media screen and (max-width: 425px) {
   .table__text {
+   
     font-size: 11px;
+    line-height: 1.4;
   }
 }
 
 .graffic {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  margin-bottom: 100px;
-  margin-bottom: 70px;
+  margin-bottom: 110px;
   font-size: 14px;
   line-height: 1.2;
 }
@@ -155,7 +170,7 @@
 
 @media screen and (max-width: 425px) {
   .graffic {
-    margin-bottom: 70px;
+    margin-bottom: 60px;
     font-size: 11px;
     line-height: 1.2;
 
@@ -168,12 +183,14 @@
   text-align: center;
   padding: 9px 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 425px) {
   .graffic__text {
     padding-top: 11px;
     padding-bottom: 11px;
+    box-sizing: border-box;
 
   }
 }
@@ -182,6 +199,7 @@
   color: white;
   font-weight: 400;
   background: #3456f3;
+  width: 100px;
 }
 
 .graffic__text:nth-child(2) {

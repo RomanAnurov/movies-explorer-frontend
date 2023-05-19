@@ -8,16 +8,17 @@
 @media screen and (max-width: 768px) {
   .navigation {
     display: none;
-
+ 
   }
 }
 
 @media screen and (max-width: 768px) {
   .navigation_type_visible {
     flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
     display: flex;
-    height: 100vh;
-  }
+   }
 }
 
 .navigation__link {
@@ -43,6 +44,7 @@
 @media screen and (max-width: 768px) {
 .navigation__link {
   font-size: 18px;
+  margin-right: 0;
 }
 }
   
@@ -59,7 +61,7 @@
 @media screen and (max-width: 768px) {
   .navigation__link:nth-child(1) {
     visibility: visible;
-    margin: 159px 0 28px 0;
+    margin: 0 0 28px 0;
    }
 
   
@@ -82,7 +84,7 @@
 @media screen and (max-width:320px) {
   .navigation__link:nth-child(1) {
     
-    margin: 144px 0 24px 0;
+    margin: 0 0 24px 0;
    }
 
   
@@ -101,3 +103,4 @@
   display: flex;
 
 }
+

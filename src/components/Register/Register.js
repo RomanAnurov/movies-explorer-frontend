@@ -18,6 +18,7 @@ function Register() {
           type="text"
           minLength={2}
           maxLength={30}
+          placeholder="Имя"
           required
         />
         <span className="register__span"></span>
@@ -28,13 +29,23 @@ function Register() {
           className="register__input"
           id="email"
           type="email"
+          minLength={2}
+          maxLength={30}
+          placeholder="email"
           value="pochta@yandex.ru"
         />
         <span className="register__span"></span>
         <label className="register__label" htmlFor="password">
           Пароль
         </label>
-        <input className="register__input" id="password" type="password" />
+        <input
+          className="register__input"
+          id="password"
+          type="password"
+          minLength={2}
+          maxLength={30}
+          placeholder="пароль"
+        />
         <span className="register__span register__span_active ">
           Что-то пошло не так...
         </span>

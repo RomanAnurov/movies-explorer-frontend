@@ -29,7 +29,7 @@
   }
 }
 .header_type_movies {
-  background: #fafafa;
+  background: #fff;
 }
 
 .header__links {
@@ -75,6 +75,8 @@
 @media screen and (max-width: 425px) {
   .header__button {
     font-size: 10px;
+    width: 54px;
+    height: 26px;
   }
 }
 

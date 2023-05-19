@@ -59,18 +59,19 @@
   align-self: center;
 }
 
-@media screen and (max-width: 425px) {
-  .techs__subtitle {
-   
-    margin-bottom: 83px;
-    font-size: 11px;
-  }
-}
-
 
 @media screen and (max-width: 1024px) {
   .techs__subtitle {
     margin-bottom: 83px;
+  }
+}
+
+
+@media screen and (max-width: 425px) {
+  .techs__subtitle {
+    margin-bottom: 50px;
+    font-size: 11px;
+    line-height: 1.4;
   }
 }
 
@@ -103,7 +104,8 @@
 @media screen and (max-width: 320px) {
   .techs__items {
     grid-template-columns: repeat(2, 84px);
-    margin-bottom: 70px;
+    margin-bottom: 80px;
+    
        
   }
 }
@@ -122,3 +124,11 @@
   text-align: center;
   margin: 0;
 }
+
+@media screen and (max-width: 320px) {
+  .techs__item {
+ font-size: 12px;
+       
+  }
+}
+

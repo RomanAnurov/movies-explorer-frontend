@@ -2,7 +2,8 @@ import React from "react";
 import "./MoviesCard.css";
 import { useLocation } from "react-router-dom";
 
-function MoviesCard() {
+function MoviesCard(props) {
+  const {image, nameRu, duration} = props;
   const isLiked = true;
   const location = useLocation();
   const { pathname } = location;
@@ -12,15 +13,15 @@ function MoviesCard() {
   }`;
   return (
     <div className="movie-card">
-      <img src="#" className="movie-card__image" alt="Карточка фильма" />
+      <img src={image} className="movie-card__image" alt={nameRu} />
       <div className="movie-card__info">
-        <h2 className="movie-card__title">Очень классный фильм</h2>
+        <h2 className="movie-card__title">{nameRu}</h2>
         {pathname === '/movies' ? (<button className={cardLikeButtonClassName} type="button"></button>):(
           <button className="movie-card__delete" type="button"></button>
         )}
         
       </div>
-      <p className="movie-card__duration">1ч 47м</p>
+      <p className="movie-card__duration">{duration}</p>
     </div>
   );
 }

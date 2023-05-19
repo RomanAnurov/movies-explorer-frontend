@@ -4,10 +4,31 @@
   display: grid;
   justify-content: center;
   align-content: center;
-  height: 100vh;
   width: 100%;
   background: #ffffff;
+  box-sizing: border-box;
+  padding: 70px 0 70px 0;
 }
+
+
+@media screen and (max-width: 768px) {
+  .login {
+    padding-top: 232px;
+    padding-bottom: 232px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .login {
+    padding: 56px 30px 30px;
+  }
+}
+
 .register__button_type_login {
-  margin-top: auto;
+  margin-top: 150px;
+}
+@media screen and (max-width: 425px) {
+.register__button_type_login {
+  margin-top: 245px;
+}
 }

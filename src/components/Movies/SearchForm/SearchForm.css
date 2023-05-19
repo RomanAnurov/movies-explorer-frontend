@@ -2,7 +2,7 @@
   padding: 0 70px 10px 70px;
   display: flex;
   flex-direction: column;
-  background: #FAFAFA;
+  background: #fff;
 }
 
 @media screen and (max-width: 768px) {
@@ -41,13 +41,22 @@
 }
 .searchform__input {
   width: 100%;
-  outline: none;
+   
   border: none;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.2;
-  background: #FAFAFA;
+  background: #fff;
 
+}
+
+.searchform__input:focus {
+ 
+  
+  background-color: #fff;
+  border-color: #bdbdbd;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
 }
 
 @media screen and (max-width: 425px) {

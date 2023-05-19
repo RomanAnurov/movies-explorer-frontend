@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: left;
   position: relative;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 1024px) {
@@ -49,7 +50,7 @@
   .promo__title {
     font-size: 28px;
     margin-top: 44px;
-    line-height: 1.2;
+    line-height: 1.4;
   }
 }
 
@@ -81,11 +82,16 @@
   padding: auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .promo__button {
+    text-align: center;
     margin-top: 92px;
+    margin-bottom: 76px;
+    align-self: center;
   }
 }
+
+
 @media screen and (max-width: 425px) {
   .promo__button {
     margin-top: 80px;
@@ -101,14 +107,7 @@
   text-decoration: none;
 }
 
-@media screen and (max-width: 1024px) {
-  .promo__button {
-    text-align: center;
-    margin-top: 92px;
-    margin-bottom: 76px;
-    align-self: center;
-  }
-}
+
 
 .promo__main-illustration {
   max-width: 310px;

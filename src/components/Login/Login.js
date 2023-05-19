@@ -17,14 +17,29 @@ function Login() {
           id="email"
           type="email"
           value="pochta@yandex.ru"
+          minLength={2}
+          maxLength={30}
+          placeholder="email"
+          required
         />
         <span className="register__span"></span>
         <label className="register__label" htmlFor="password">
           Пароль
         </label>
-        <input className="register__input" id="password" type="password" />
+        <input
+          className="register__input"
+          id="password"
+          type="password"
+          minLength={2}
+          maxLength={30}
+          placeholder="пароль"
+          required
+        />
         <span className="register__span register__span_active"></span>
-        <button className="register__button register__button_type_login" type="submit">
+        <button
+          className="register__button register__button_type_login"
+          type="submit"
+        >
           Войти
         </button>
 
