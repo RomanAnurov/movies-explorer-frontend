@@ -3,6 +3,11 @@
   max-width: 38px;
   
 }
+.logo:hover {
+  opacity: 0.6;
+  transition: 0.4s opacity;
+}
+
 @media screen and (max-width: 425px) {
   .logo {
     margin: 0 auto;

@@ -18,7 +18,7 @@
   .header {
     padding-right: 20px;
     padding-left: 20px;
-    
+
   }
 }
 
@@ -28,6 +28,7 @@
     padding-left: 14px;
   }
 }
+
 .header_type_movies {
   background: #fff;
 }
@@ -48,12 +49,14 @@
   align-self: center;
 }
 
+
 @media screen and (max-width: 425px) {
   .header__link {
     font-size: 10px;
     margin-right: 26px;
   }
 }
+
 .header__link:hover {
   opacity: 0.6;
   transition: 0.4s opacity;
@@ -72,6 +75,12 @@
   cursor: pointer;
 }
 
+.header__button:hover {
+  opacity: 0.6;
+  transition: 0.4s opacity;
+
+}
+
 @media screen and (max-width: 425px) {
   .header__button {
     font-size: 10px;
@@ -88,13 +97,13 @@
   width: 44px;
   height: 44px;
   padding: 0;
- 
+
 }
 
 @media screen and (max-width: 768px) {
   .header__burger {
     display: flex;
 
-}
-  
+  }
+
 }

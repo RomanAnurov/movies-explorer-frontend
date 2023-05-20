@@ -34,6 +34,13 @@
   align-self: center;
 
 }
+
+.navigation__link:hover {
+  opacity: 0.6;
+  transition: 0.4s opacity;
+}
+
+
 .navigation__link_active {
   border-bottom: 2px solid black;
   padding-bottom: 4px;

@@ -186,6 +186,13 @@
   box-sizing: border-box;
 }
 
+.graffic__text:nth-child(1) {
+  color: white;
+  font-weight: 400;
+  background: #3456f3;
+  width: 200px;
+}
+
 @media screen and (max-width: 425px) {
   .graffic__text {
     padding-top: 11px;
@@ -194,12 +201,13 @@
 
   }
 }
-
+@media screen and (max-width: 425px) {
 .graffic__text:nth-child(1) {
   color: white;
   font-weight: 400;
   background: #3456f3;
   width: 100px;
+}
 }
 
 .graffic__text:nth-child(2) {
