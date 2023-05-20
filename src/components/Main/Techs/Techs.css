@@ -1,0 +1,134 @@
+.techs {
+  padding: 0 70px 0 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #f5f5f5;
+}
+
+@media screen and (max-width: 1024px) {
+  .techs {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media screen and (max-width: 495px) {
+  .techs {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .techs {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+.techs__title {
+  margin: 90px 0 26px;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .techs__title {
+    margin-top: 80px;
+    margin-bottom: 22px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .techs__title {
+    margin-top: 60px;
+    margin-bottom: 24px;
+    font-size: 30px;
+  }
+}
+
+.techs__subtitle {
+  display: flex;
+  margin: 0 0 100px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  max-width: 460px;
+  align-self: center;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .techs__subtitle {
+    margin-bottom: 83px;
+  }
+}
+
+
+@media screen and (max-width: 425px) {
+  .techs__subtitle {
+    margin-bottom: 50px;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+}
+
+.techs__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 90px);
+  column-gap: 10px;
+  row-gap: 10px;
+  width: 100%;
+  align-self: center;
+  margin-bottom: 100px;
+  justify-content: center;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .techs__items {
+    margin-bottom: 90px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .techs__items {
+    grid-template-columns: repeat(auto-fit, 84px);
+    margin-bottom: 70px;
+    
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .techs__items {
+    grid-template-columns: repeat(2, 84px);
+    margin-bottom: 80px;
+    
+       
+  }
+}
+
+
+
+.techs__item {
+  border: none;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  background: #e8e8e8;
+  border-radius: 10px;
+
+  padding: 20px 0 20px;
+  text-align: center;
+  margin: 0;
+}
+
+@media screen and (max-width: 320px) {
+  .techs__item {
+ font-size: 12px;
+       
+  }
+}
+
