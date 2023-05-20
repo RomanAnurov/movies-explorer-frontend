@@ -5,14 +5,15 @@ import SearchForm from "../Movies/SearchForm/SearchForm";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import BurgerPopup from "../BurgerPopup/BurgerPopup";
+import Preloader from "../Preloder/Preloader";
 
 function SavedMovies(props) {
-  const {onBurgerPopup} = props;
+  const {onBurgerPopup, isLoading} = props;
   return (
     <section saved-movies>
      <Header onBurgerPopup={onBurgerPopup}/>
       <SearchForm />
-      <MoviesCardList />
+      {isLoading ? <Preloader /> : <MoviesCardList />}
       <Footer />
       <BurgerPopup  />
     </section>

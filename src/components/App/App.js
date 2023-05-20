@@ -14,6 +14,7 @@ import BurgerPopup from "../BurgerPopup/BurgerPopup";
 
 function App() {
   const [isBurgerPopupOpen, setIsBurgerPopupOpen] = useState(false);
+  const[isLoading, setIsLoading] = useState(false);
 
   function handleBurgerPopupClick() {
     setIsBurgerPopupOpen(true);
@@ -34,6 +35,7 @@ function App() {
               isBurgerPopupOpen={isBurgerPopupOpen}
               onBurgerPopup={handleBurgerPopupClick}
               onClose={handleBurgerPopupClose}
+              isLoading={isLoading}
             />
           }
         />
@@ -44,6 +46,7 @@ function App() {
               isBurgerPopupOpen={isBurgerPopupOpen}
               onBurgerPopup={handleBurgerPopupClick}
               onClose={handleBurgerPopupClose}
+              isLoading={isLoading}
             />
           }
         />

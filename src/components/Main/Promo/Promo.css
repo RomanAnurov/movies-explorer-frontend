@@ -82,6 +82,11 @@
   padding: auto;
 }
 
+.promo__button:hover {
+  opacity: 0.6;
+  transition: 0.4s opacity;
+}
+
 @media screen and (max-width: 1024px) {
   .promo__button {
     text-align: center;
