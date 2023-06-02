@@ -25,10 +25,5 @@
 }
 
 .register__button_type_login {
-  margin-top: 150px;
-}
-@media screen and (max-width: 425px) {
-.register__button_type_login {
-  margin-top: 245px;
-}
+  margin-top: 20px;
 }

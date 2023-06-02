@@ -190,7 +190,7 @@
   color: white;
   font-weight: 400;
   background: #3456f3;
-  width: 200px;
+  max-width: 228px;
 }
 
 @media screen and (max-width: 425px) {

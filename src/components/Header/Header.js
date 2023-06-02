@@ -1,6 +1,6 @@
 import React from "react";
 import './Header.css';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Logo from "../Logo/Logo";
 import Navigation from "../Navigation/Navigation";
 import burgerIcon from "../../images/button-burger.svg"
@@ -8,10 +8,10 @@ import burgerIcon from "../../images/button-burger.svg"
 function Header(props) {
 const {onBurgerPopup, isOpen, onClose} = props;
   
-  const location = useLocation();
-  const { pathname } = location;
+  const isAuth = localStorage.getItem('jwt');
+ 
   return (
-    pathname === '/' ? (<header className="header">
+    !isAuth ? (<header className="header">
       <Logo />
       <div className="header__links">
         <Link className="header__link" to="/signup">Регистрация</Link>
