@@ -1,7 +1,7 @@
-import { BASE__URL } from "../constants";
+import { MOVIES__URL } from "../constants";
 
 export const getMovies = () => {
-  return fetch(`${BASE__URL}`, {
+  return fetch(`${MOVIES__URL}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

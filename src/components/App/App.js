@@ -23,7 +23,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isServerErr, setIsServerErr] = useState({ text: "" });
   const [allMovies, setAllMovies] = useState([]);
-  const [savedUserMovies, setSavedUserMovies] = useState([]);
+  const [savedMovies, setSavedMovies] = useState([]);
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
@@ -49,6 +49,43 @@ function App() {
     }
   }, [isLoggedIn]);
 
+  useEffect(() => {
+    function loadAllMovies() {
+      setIsLoading(true);
+      moviesApi
+        .getMovies()
+        .then((data) => {
+          setAllMovies(data);
+        })
+        .catch(() => {
+          setIsServerErr({
+            text: "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз",
+          });
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
+
+
+    function loadSavedMovies() {
+      mainApi.getSavedMovies()
+      .then((data) => {
+        setSavedMovies(data)
+      }).catch(() => {
+        setIsServerErr({
+          text: "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз",
+        });
+      })
+
+      
+    }
+    if (isLoggedIn) {
+      loadAllMovies();
+      loadSavedMovies()
+    }
+  }, [isLoggedIn]);
+
   function handleBurgerPopupClick() {
     setIsBurgerPopupOpen(true);
   }
@@ -57,31 +94,29 @@ function App() {
     setIsBurgerPopupOpen(false);
   }
 
+  function savedMovieList(movie) {
+    mainApi
+      .addMovie(movie)
+      .then((userMovie) => {
+        setSavedMovies([userMovie, ...savedMovies]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
-  useEffect(() => {
-    function loadAllMovies() {
-      setIsLoading(true);
-      moviesApi
-        .getMovies()
-        .then((data) => {
-          setAllMovies(data);
-          
-        })
-        .catch(() => {
-          setIsServerErr({
-            text: "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз",
-          });
-        }).finally(() => {
-           setIsLoading(false);
-        })
-  
-      }
-      if(isLoggedIn) {
-        loadAllMovies();
-      }
-  },[isLoggedIn]
-  )
-  
+  function deleteMovieToList(movie) {
+    const movieToDelete = savedMovies.find(m => movie.id === m.movieId || movie.movieId === m.movieId);
+    mainApi.deleteMovie(movieToDelete._id)
+      .then(removedMovie => {
+        setSavedMovies(state =>
+          state.filter(item => item._id !== removedMovie._id)
+        );
+        
+      })
+      .catch(err => (err))
+  }
+
 
   function handleSignUp(email, password, name) {
     mainApi
@@ -191,7 +226,9 @@ function App() {
                   isLoggedIn={isLoggedIn}
                   allMovies={allMovies}
                   setIsLoading={setIsLoading}
-                  
+                  savedMovieList={savedMovieList}
+                  savedMovies={savedMovies}
+                  deleteMovieToList={deleteMovieToList}
                 />
               </ProtectedRoute>
             }
@@ -207,6 +244,11 @@ function App() {
                   onClose={handleBurgerPopupClose}
                   isLoading={isLoading}
                   isLoggedIn={isLoggedIn}
+                  setIsLoading={setIsLoading}
+                  savedMovieList={savedMovieList}
+                  savedMovies={savedMovies}
+                  deleteMovieToList={deleteMovieToList}
+                  
                 />
               </ProtectedRoute>
             }

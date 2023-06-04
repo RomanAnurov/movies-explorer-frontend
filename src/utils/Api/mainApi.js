@@ -1,4 +1,5 @@
-const BASE__URL = "https://api.anurovdiplom.nomoredomains.monster";
+import { BASE__URL } from "../constants";
+import { API__URL } from "../constants";
 
 const getResponse = (res) => {
   if (res.ok) {
@@ -76,19 +77,30 @@ export const getSavedMovies = () => {
       return data;
     });
 };
-export const addMovie = (movie) => {
+export const addMovie = (data) => {
   return fetch(`${BASE__URL}/movies`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
-    body: JSON.stringify(movie),
+    body: JSON.stringify({
+      nameRU: data.nameRU,
+      nameEN: data.nameEN,
+      country: data.country,
+      duration: data.duration,
+      director: data.director,
+      year: data.year,
+      description: data.description,
+      image: `${API__URL}${data.image.url}`,
+      trailerLink: data.trailerLink,
+      thumbnail: `${API__URL}${data.image.formats.thumbnail.url}`,
+      movieId: data.id
+      
+    }),
   })
     .then(getResponse)
-    .then((data) => {
-      return data;
-    });
+    
 };
 
 export const deleteMovie = (movieId) => {
@@ -104,3 +116,5 @@ export const deleteMovie = (movieId) => {
       return data;
     });
 };
+
+
