@@ -15,6 +15,8 @@ import * as moviesApi from "../../utils/Api/moviesApi";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import ProtectedRoute from "../Protect/ProtectedRoute";
 
+
+
 function App() {
   const navigate = useNavigate();
   const [isBurgerPopupOpen, setIsBurgerPopupOpen] = useState(false);

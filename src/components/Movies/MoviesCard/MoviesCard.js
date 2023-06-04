@@ -23,7 +23,9 @@ function MoviesCard(props) {
   }`;
 
   function handleDeleteMovie() {
+    
     return deleteMovieToList(card);
+    
   }
 
   return (

@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useEffect, useMemo } from "react";
 
 import "./Movies.css";
@@ -7,12 +6,20 @@ import MoviesCardList from "./MoviesCardList/MoviesCardList";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import BurgerPopup from "../BurgerPopup/BurgerPopup";
-import Preloader from '../Preloader/Preloader';
+import Preloader from "../Preloader/Preloader";
 import { debounce } from "../../utils/functionsUtils";
 
 function Movies(props) {
-  const { onBurgerPopup, isLoading, isLoggedIn, allMovies, setIsLoading, savedMovieList, deleteMovieToList, savedMovies} =
-    props;
+  const {
+    onBurgerPopup,
+    isLoading,
+    isLoggedIn,
+    allMovies,
+    setIsLoading,
+    savedMovieList,
+    deleteMovieToList,
+    savedMovies,
+  } = props;
 
   const [isChecked, setIsChecked] = useState(
     localStorage.getItem("isShort") === "true"
@@ -45,7 +52,7 @@ function Movies(props) {
         : movie.duration > 40 && filtredMovieInclud;
     });
 
-    setFiltredMovies(movies)
+    setFiltredMovies(movies);
     setIsLoading(false);
     localStorage.setItem("filtredMovies", JSON.stringify(movies));
     localStorage.setItem("moviesSearch", moviesSearch);
@@ -53,9 +60,7 @@ function Movies(props) {
     setPreloderMessage(true);
 
     console.log(movies);
-    
   }
-
 
   const handleResize = useCallback(
     debounce(() => {
@@ -71,13 +76,13 @@ function Movies(props) {
   }, [filtredMovies, page, screenWidth]);
 
   const handleMoreClick = useCallback(() => {
-    setPage(prev => prev + 1);
+    setPage((prev) => prev + 1);
   }, []);
-  
+
   useEffect(() => {
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -98,7 +103,6 @@ function Movies(props) {
           {filtredMovies.length === 0 &&
             (preloderMessage ? <Preloader text={"Ничего не найдено"} /> : null)}
           <MoviesCardList
-         
             isLoading={isLoading}
             movies={cardsToRender}
             filtredMovies={filtredMovies}
@@ -107,9 +111,7 @@ function Movies(props) {
             savedMovies={savedMovies}
             deleteMovieToList={deleteMovieToList}
             handleMoreClick={handleMoreClick}
-
-
-
+            setPreloderMessage={setPreloderMessage}
           />
         </>
       )}

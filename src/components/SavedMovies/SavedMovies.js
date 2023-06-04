@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 
 import "./SavedMovies.css";
 import SearchForm from "../Movies/SearchForm/SearchForm";
@@ -23,50 +23,33 @@ function SavedMovies(props) {
 
   const [moviesSearch, setMoviesSearch] = useState("");
 
-  const [filtredMovies, setFiltredMovies] = useState(savedMovies);
+  const [filterString, setFilterString] = useState("");
 
   const [preloderMessage, setPreloderMessage] = useState(false);
-
-  /* function handleSearchMovies(isChecked) {
-    setIsLoading(true);
-    setFiltredMovies(
-      savedMovies.filter((movie) => {
-        const str = moviesSearch.toLowerCase();
-        const filtredMovieInclud =
-          movie.nameRU.toLowerCase().includes(str) ||
-          movie.nameEN.toLowerCase().includes(str);
-
-        return isChecked
-          ? filtredMovieInclud
-          : movie.duration > 40 && filtredMovieInclud;
-      })
-    );
-    setIsLoading(false);
-    setPreloderMessage(true);
-    console.log(filtredMovies);
-  } */
-
-   const handleSearchMovies = useCallback(async () => {
-    setIsLoading(true);
-    setFiltredMovies(
-      savedMovies.filter((movie) => {
-        const str = moviesSearch.toLowerCase();
-        const filtredMovieInclud =
-          movie.nameRU.toLowerCase().includes(str) ||
-          movie.nameEN.toLowerCase().includes(str);
-
-        return isChecked
-          ? filtredMovieInclud
-          : movie.duration > 40 && filtredMovieInclud;
-      })
-    );
-    setIsLoading(false);
-    setPreloderMessage(true);
-    console.log(filtredMovies);
-  }, [filtredMovies, isChecked, moviesSearch, savedMovies, setIsLoading]);  
-
  
-  
+  const handleSearchMovies = useCallback(async () => {
+    
+    if (!moviesSearch) {
+      setPreloderMessage(true);
+    }
+
+    setFilterString(moviesSearch);
+  }, [moviesSearch]);
+
+  const filtredMovies = useMemo(() => {
+    setIsLoading(true);
+    return savedMovies.filter((movie) => {
+      const str = filterString.toLowerCase();
+      const filtredMovieInclud =
+        movie.nameRU.toLowerCase().includes(str) ||
+        movie.nameEN.toLowerCase().includes(str);
+      setIsLoading(false);
+      setPreloderMessage(true);
+      return isChecked
+        ? filtredMovieInclud
+        : movie.duration > 40 && filtredMovieInclud;
+    });
+  }, [filterString, isChecked, savedMovies, setIsLoading]);
 
   return (
     <section className="movies">
