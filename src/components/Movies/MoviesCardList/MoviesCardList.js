@@ -15,7 +15,7 @@ function MoviesCardList(props) {
   } = props;
   const location = useLocation();
   const { pathname } = location;
-  const cards = location.pathname === "/movies" ? movies : filtredMovies;
+  const cards = location.pathname === "/movies" ? movies : savedMovies;
 
 
 
