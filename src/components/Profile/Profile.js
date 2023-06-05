@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Profile.css";
 import Header from "../Header/Header";
 import { Link } from "react-router-dom";
@@ -18,6 +18,9 @@ function Profile(props) {
     isServerErr,
   } = props;
 
+  const [isButtonDisable, setIsButtonDisable] = useState(false);
+  const [isInputDisable, setIsInputDisable] = useState(false);
+
   const currentUser = useContext(CurrentUserContext);
 
   const { values, setValues, handleChange, errors, isValid } =
@@ -33,12 +36,28 @@ function Profile(props) {
     });
   }, [currentUser]);
 
+  // Блокировка кнопки, если данные совпадают
+
+  useEffect(() => {
+    if (
+      values.name === currentUser.name &&
+      values.email === currentUser.email
+    ) {
+      setIsButtonDisable(false);
+    } else {
+      if (isValid) {
+        setIsButtonDisable(true);
+      }
+    }
+  }, [currentUser, values]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setIsInputDisable(true);
     const { name, email } = values;
 
     handleUserUpdate({ name, email });
+    setIsInputDisable(true);
   };
   return (
     <section className="profile">
@@ -55,6 +74,7 @@ function Profile(props) {
               Имя
             </label>
             <input
+              disabled={isInputDisable}
               className="profile__input"
               id="name"
               type="text"
@@ -78,6 +98,7 @@ function Profile(props) {
               E-mail
             </label>
             <input
+              disabled={isInputDisable}
               className="profile__input"
               id="email"
               type="email"
@@ -106,8 +127,10 @@ function Profile(props) {
           </span>
 
           <button
-            className={`profile__edit ${isValid && "profile__edit_active"}`}
-            disabled={!isValid}
+            className={`profile__edit ${
+              isButtonDisable && "profile__edit_active"
+            }`}
+            disabled={!isValid || !isButtonDisable}
             type="submit"
           >
             Редактировать

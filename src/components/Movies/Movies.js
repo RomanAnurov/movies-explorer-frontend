@@ -8,6 +8,7 @@ import Footer from "../Footer/Footer";
 import BurgerPopup from "../BurgerPopup/BurgerPopup";
 import Preloader from "../Preloader/Preloader";
 import { debounce } from "../../utils/functionsUtils";
+import { SCREEN__RENDERMOVIES } from "../../utils/constants";
 
 function Movies(props) {
   const {
@@ -70,7 +71,12 @@ function Movies(props) {
   );
 
   const cardsToRender = useMemo(() => {
-    const countToRender = screenWidth < 541 ? 5 : screenWidth < 866 ? 8 : 12;
+    const countToRender =
+      screenWidth < SCREEN__RENDERMOVIES.small
+        ? SCREEN__RENDERMOVIES.smallCount
+        : screenWidth < SCREEN__RENDERMOVIES.middle
+        ? SCREEN__RENDERMOVIES.middleCount
+        : SCREEN__RENDERMOVIES.largeCount;
 
     return filtredMovies.slice(0, countToRender * page);
   }, [filtredMovies, page, screenWidth]);
@@ -112,6 +118,7 @@ function Movies(props) {
             deleteMovieToList={deleteMovieToList}
             handleMoreClick={handleMoreClick}
             setPreloderMessage={setPreloderMessage}
+            cardsToRender={cardsToRender}
           />
         </>
       )}

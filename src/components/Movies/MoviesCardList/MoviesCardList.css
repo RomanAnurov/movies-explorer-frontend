@@ -60,6 +60,11 @@
    
 }
 
+
+.movie-container__button_disabled {
+  display: none;
+
+}
 @media screen and (max-width: 425px) {
   .movie-container__button {
     width: 240px;

@@ -29,8 +29,8 @@ function SearchForm(props) {
 
 
   const handleCheckbox = () => {
-    
-    setIsChecked(!isChecked);
+    handleSearchMovies(isChecked);
+     setIsChecked(!isChecked);
 }
 
   return (

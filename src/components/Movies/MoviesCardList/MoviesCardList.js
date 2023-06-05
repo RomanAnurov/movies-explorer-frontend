@@ -11,8 +11,9 @@ function MoviesCardList(props) {
     filtredMovies,
     deleteMovieToList,
     handleMoreClick,
-   
+    cardsToRender,
   } = props;
+
   const location = useLocation();
   const { pathname } = location;
   const cards = location.pathname === "/movies" ? movies : filtredMovies;
@@ -29,7 +30,6 @@ function MoviesCardList(props) {
                 savedMovieList={savedMovieList}
                 savedMovies={savedMovies}
                 deleteMovieToList={deleteMovieToList}
-                
               />
             </li>
           );
@@ -37,7 +37,13 @@ function MoviesCardList(props) {
       </ul>
 
       {pathname === "/movies" && (
-        <button className="movie-container__button" onClick={handleMoreClick}>
+        <button
+          className={`movie-container__button ${
+            filtredMovies.length === cardsToRender.length &&
+            "movie-container__button_disabled"
+          }`}
+          onClick={handleMoreClick}
+        >
           Ещё
         </button>
       )}

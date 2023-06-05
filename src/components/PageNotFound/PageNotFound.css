@@ -3,9 +3,7 @@
   flex-direction: column;
   height: 100vh;
   justify-content: flex-end;
-
 }
-
 
 .page-error__title {
   margin: 0 0 5px 0;
@@ -13,15 +11,12 @@
   font-weight: 400;
   line-height: 1.2;
   text-align: center;
-
 }
 
 @media screen and (max-width: 425px) {
-.page-error__title {
-  font-size: 80px;
-}
-
-  
+  .page-error__title {
+    font-size: 80px;
+  }
 }
 .page-error__subtitle {
   margin: 0;
@@ -29,24 +24,31 @@
   font-weight: 400;
   line-height: 1.2;
   text-align: center;
-
-
 }
 
 @media screen and (max-width: 425px) {
   .page-error__subtitle {
     font-size: 12px;
   }
-  
 }
 .page-error__link {
+  width: 60px;
+  background: none;
+  border: none;
   text-decoration: none;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.2;
   text-align: center;
-  color: #3456F3;
-  padding: 184px 0 60px 0;
+  color: #3456f3;
+  margin: 184px 0 60px 0;
+  cursor: pointer;
+  align-self: center;
+}
+
+.page-error__link:hover {
+  opacity: 0.6;
+  transition: 0.4s opacity;
 }
 
 @media screen and (max-width: 425px) {
@@ -54,6 +56,4 @@
     font-size: 12px;
     padding: 284px 142px 30px;
   }
-  
 }
-
