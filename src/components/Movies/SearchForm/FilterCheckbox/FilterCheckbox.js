@@ -7,7 +7,7 @@ function FilterCheckbox({ isChecked, handleChange }) {
       <label htmlFor="movie" className="filter__label">
         <input
           type="checkbox"
-          checked={isChecked}
+          checked={!isChecked}
           onChange={handleChange}
           
           id="movie"

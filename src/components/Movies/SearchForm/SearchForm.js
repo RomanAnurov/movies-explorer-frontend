@@ -4,14 +4,20 @@ import "./SearchForm.css";
 import FilterCheckbox from "./FilterCheckbox/FilterCheckbox";
 
 function SearchForm(props) {
-  const { moviesSearch, setMoviesSearch, isChecked, setIsChecked, handleSearchMovies} = props;
+  const {
+    moviesSearch,
+    setMoviesSearch,
+    isChecked,
+    setIsChecked,
+    handleSearchMovies,
+    
+  } = props;
 
   const [isInputError, setIsInputError] = useState("");
 
   const showError = (data) => {
     if (data === "") {
       setIsInputError("Нужно ввести ключевое слово");
-      
     } else {
       setIsInputError("");
     }
@@ -23,15 +29,26 @@ function SearchForm(props) {
   };
 
   const handleSubmit = (e) => {
+    if (!moviesSearch) {
+      return 
+    }
     e.preventDefault();
     handleSearchMovies(isChecked);
   };
 
-
   const handleCheckbox = () => {
-    handleSearchMovies(isChecked);
-     setIsChecked(!isChecked);
-}
+    
+    if (!moviesSearch) {
+      setIsInputError("Нужно ввести ключевое слово");
+     
+    } else {
+     
+      handleSearchMovies(!isChecked);
+
+      setIsChecked(!isChecked);
+    }
+  
+  };
 
   return (
     <section className="searchform">
@@ -42,7 +59,6 @@ function SearchForm(props) {
       >
         <fieldset className="searchform__container">
           <input
-           
             onChange={handleChange}
             className={`searchform__input ${
               isInputError ? "searchform__input_error" : ""
@@ -71,7 +87,7 @@ function SearchForm(props) {
         >
           {isInputError}
         </span>
-        <FilterCheckbox  isChecked={isChecked} handleChange={handleCheckbox}/>
+        <FilterCheckbox isChecked={isChecked} handleChange={handleCheckbox} />
       </form>
     </section>
   );

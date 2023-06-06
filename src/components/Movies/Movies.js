@@ -50,7 +50,7 @@ function Movies(props) {
 
       return isChecked
         ? filtredMovieInclud
-        : movie.duration > 40 && filtredMovieInclud;
+        : movie.duration < 40 && filtredMovieInclud;
     });
 
     setFiltredMovies(movies);
@@ -62,6 +62,10 @@ function Movies(props) {
 
     console.log(movies);
   }
+
+  useEffect(() => {
+    localStorage.setItem("isShort", isChecked.toString());
+  }, [isChecked]);
 
   const handleResize = useCallback(
     debounce(() => {
@@ -101,6 +105,7 @@ function Movies(props) {
         handleSearchMovies={handleSearchMovies}
         isChecked={isChecked}
         setIsChecked={setIsChecked}
+        setPreloderMessage={setPreloderMessage}
       />
       {isLoading ? (
         <Preloader />

@@ -57,7 +57,7 @@ function Profile(props) {
     const { name, email } = values;
 
     handleUserUpdate({ name, email });
-    setIsInputDisable(true);
+    setIsInputDisable(false);
   };
   return (
     <section className="profile">

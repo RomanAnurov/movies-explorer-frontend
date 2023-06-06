@@ -14,8 +14,7 @@ import * as mainApi from "../../utils/Api/mainApi";
 import * as moviesApi from "../../utils/Api/moviesApi";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import ProtectedRoute from "../Protect/ProtectedRoute";
-
-
+import ProtectedAuthRoute from '../ProtectAuth/ProtectedAuthRoute';
 
 function App() {
   const navigate = useNavigate();
@@ -69,22 +68,21 @@ function App() {
         });
     }
 
-
     function loadSavedMovies() {
-      mainApi.getSavedMovies()
-      .then((data) => {
-        setSavedMovies(data)
-      }).catch(() => {
-        setIsServerErr({
-          text: "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз",
+      mainApi
+        .getSavedMovies()
+        .then((data) => {
+          setSavedMovies(data);
+        })
+        .catch(() => {
+          setIsServerErr({
+            text: "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз",
+          });
         });
-      })
-
-      
     }
     if (isLoggedIn) {
       loadAllMovies();
-      loadSavedMovies()
+      loadSavedMovies();
     }
   }, [isLoggedIn]);
 
@@ -108,17 +106,18 @@ function App() {
   }
 
   function deleteMovieToList(movie) {
-    const movieToDelete = savedMovies.find(m => movie.id === m.movieId || movie.movieId === m.movieId);
-    mainApi.deleteMovie(movieToDelete._id)
-      .then(removedMovie => {
-        setSavedMovies(state =>
-          state.filter(item => item._id !== removedMovie._id)
+    const movieToDelete = savedMovies.find(
+      (m) => movie.id === m.movieId || movie.movieId === m.movieId
+    );
+    mainApi
+      .deleteMovie(movieToDelete._id)
+      .then((removedMovie) => {
+        setSavedMovies((state) =>
+          state.filter((item) => item._id !== removedMovie._id)
         );
-        
       })
-      .catch(err => (err))
+      .catch((err) => err);
   }
-
 
   function handleSignUp(email, password, name) {
     mainApi
@@ -250,7 +249,6 @@ function App() {
                   savedMovieList={savedMovieList}
                   savedMovies={savedMovies}
                   deleteMovieToList={deleteMovieToList}
-                  
                 />
               </ProtectedRoute>
             }
@@ -286,13 +284,20 @@ function App() {
           <Route
             path="/signup"
             element={
-              <Register handleSignUp={handleSignUp} isServerErr={isServerErr} />
+              <ProtectedAuthRoute isLoggedIn={isLoggedIn}>
+                <Register
+                  handleSignUp={handleSignUp}
+                  isServerErr={isServerErr}
+                />
+              </ProtectedAuthRoute>
             }
           />
           <Route
             path="/signin"
             element={
-              <Login handleSignIn={handleSignIn} isServerErr={isServerErr} />
+              <ProtectedAuthRoute isLoggedIn={isLoggedIn}>
+                <Login handleSignIn={handleSignIn} isServerErr={isServerErr} />
+              </ProtectedAuthRoute>
             }
           />
           <Route path="*" element={<PageNotFound />} />
