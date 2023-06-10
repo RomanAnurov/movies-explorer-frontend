@@ -1,0 +1,32 @@
+@keyframes rotation {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+.preloader{
+display: flex;
+}
+.preloader__load {
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 50px;
+  animation: rotation 1s linear ease-in-out;
+  height: 50px;
+  border: 12px solid #1774dd;
+  border-left: 8px solid #fff;
+  border-radius: 50%;
+ 
+  
+}
+
+.preloader__text {
+ 
+  font-size: 30px;
+  font-weight: 500;
+  color: #EE3465;
+  margin: 25px auto;
+  
+}

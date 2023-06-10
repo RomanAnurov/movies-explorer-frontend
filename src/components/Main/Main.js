@@ -8,10 +8,12 @@ import Portfolio from "./Portfolio/Portfolio";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-function Main() {
+function Main(props) {
+  const { onBurgerPopup} = props;
+  
   return (
     <main className="main">
-      <Header />
+      <Header onBurgerPopup={onBurgerPopup} />
       <Promo />
       <AboutProject />
       <Techs />
